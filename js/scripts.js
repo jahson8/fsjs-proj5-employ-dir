@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return fetch(url)
       .then(checkStatus)
       .then((res) => res.json())
-      .catch((err) => console.log("Looks like there was a Problem", err));
+      .catch((err) => console.error("Looks like there was a Problem", err));
   };
 
   function checkStatus(res) {
@@ -136,10 +136,12 @@ document.addEventListener("DOMContentLoaded", () => {
     `<div class="modal-container js-modal hide"></div>`
   );
 
+  // Selects the modal container
+  const modalContainer = document.querySelector(".js-modal");
+
   /* --------------------------
     event handlers
   --------------------------------*/
-  const modalContainer = document.querySelector(".js-modal");
 
   const displayModal = (evt) => {
     if (evt.target !== gallery) {
